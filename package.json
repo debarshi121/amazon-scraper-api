@@ -1,0 +1,16 @@
+{
+  "name": "amazon-scraper-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-buddy": "^2.2.45",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
