@@ -12,12 +12,20 @@ app.options("*", cors());
 app.get(`/products`, async (req, res, next) => {
 	try {
 		if (req.query.keyword) {
-			// const reviews = await amazonScraper.reviews({ asin: "B01GW3H3U8", number: 50 });
 			const products = await amazonScraper.products({ keyword: req.query.keyword, number: 50, country: "IN" });
 			res.status(200).json({ products });
 		} else {
 			res.status(200).json({ products: [] });
 		}
+	} catch (error) {
+		res.status(500).json({ error });
+	}
+});
+
+app.get(`/products/:asin`, async (req, res, next) => {
+	try {
+		const product = await amazonScraper.asin({ asin: 'B078T6991W' });
+		res.status(200).json({ product });
 	} catch (error) {
 		res.status(500).json({ error });
 	}
