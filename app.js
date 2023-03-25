@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 const port = process.env.PORT || 3005;
 
 const amazonScraper = require("amazon-buddy");
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(cors());
 app.options("*", cors());
+app.use(helmet());
 
 app.get(`/products`, async (req, res, next) => {
 	try {
